@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'             //用来编译dagger等项目用的，与以前的apt和annotationProcessor一样
 apply plugin: 'kotlin-android-extensions'
 
 android {
