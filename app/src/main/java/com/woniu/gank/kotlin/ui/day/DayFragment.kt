@@ -12,7 +12,7 @@ import com.woniu.gank.kotlin.base.RxBaseFragment
  * @date
  * @since 2017/6/14 下午9:31
  */
-class DayFragment : RxBaseFragment() {
+class DayFragment : RxBaseFragment(), DayContract.View {
 
     //Java 调用伴生对象的方法时需要加上注解 platformStatic
     companion object {
