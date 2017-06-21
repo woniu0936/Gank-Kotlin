@@ -1,6 +1,7 @@
-package com.woniu.gank.kotlin.ui
+package com.woniu.gank.kotlin.ui.day
 
 import android.os.Bundle
+import com.woniu.gank.kotlin.R
 import com.woniu.gank.kotlin.base.RxBaseFragment
 
 /**
@@ -13,11 +14,17 @@ import com.woniu.gank.kotlin.base.RxBaseFragment
  */
 class DayFragment : RxBaseFragment() {
 
+    //Java 调用伴生对象的方法时需要加上注解 platformStatic
+    companion object {
+        fun newInstance(): DayFragment {
+            return DayFragment()
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
 
-    override fun getLayoutId(): Int {
-        return 0
-    }
+    override fun getLayoutId(): Int = R.layout.fragment_day
+
 }

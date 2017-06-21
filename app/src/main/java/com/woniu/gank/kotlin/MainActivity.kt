@@ -2,26 +2,33 @@ package com.woniu.gank.kotlin
 
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
-import com.trello.rxlifecycle2.android.ActivityEvent
-import com.trello.rxlifecycle2.kotlin.bindUntilEvent
 import com.woniu.gank.kotlin.base.RxBaseActivity
-import io.reactivex.Observable
+import com.woniu.gank.kotlin.ui.category.CategoryFragment
+import com.woniu.gank.kotlin.ui.day.DayFragment
+import com.woniu.gank.kotlin.ui.girl.GirlFragment
 import kotlinx.android.synthetic.main.activity_main.*
+import me.yokeyword.fragmentation.SupportFragment
 
 class MainActivity : RxBaseActivity() {
+
+    val FIRST = 0
+    val SECOND = 1
+    val THIRD = 2
+
+    private val mFragments = arrayOfNulls<SupportFragment>(4)
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_home -> {
-                message.setText(R.string.title_home)
+                showHideFragment(mFragments[FIRST])
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_dashboard -> {
-                message.setText(R.string.title_dashboard)
+                showHideFragment(mFragments[SECOND])
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_notifications -> {
-                message.setText(R.string.title_notifications)
+                showHideFragment(mFragments[THIRD])
                 return@OnNavigationItemSelectedListener true
             }
         }
@@ -30,8 +37,20 @@ class MainActivity : RxBaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (null == savedInstanceState) {
+            mFragments[FIRST] = DayFragment.newInstance()
+            mFragments[SECOND] = CategoryFragment.newInstance()
+            mFragments[THIRD] = GirlFragment.newInstance()
+            loadMultipleRootFragment(R.id.content, FIRST,
+                    mFragments[FIRST],
+                    mFragments[SECOND],
+                    mFragments[THIRD])
+        } else {
+            mFragments[FIRST] = findFragment(DayFragment::class.java)
+            mFragments[SECOND] = findFragment(CategoryFragment::class.java)
+            mFragments[THIRD] = findFragment(GirlFragment::class.java)
+        }
 
-        val navigation = findViewById(R.id.navigation) as BottomNavigationView
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
 
     }

@@ -24,6 +24,7 @@ class GankApp : Application() {
     }
 
     //使用kotlin的委托属性特性，讲GankApp做一个全局非空的单例化context
+    //Java 调用伴生对象的方法时需要加上注解 platformStatic
     companion object {
         //委托特性详解参见：http://www.tuicool.com/articles/AVNNNfF
         var instance: GankApp by Delegates.notNull<GankApp>()
