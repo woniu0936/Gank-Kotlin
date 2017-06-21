@@ -1,8 +1,10 @@
 package com.woniu.gank.kotlin
 
 import android.app.Application
+import com.woniu.gank.kotlin.data.ApiService
 import com.woniu.gank.kotlin.di.AppComponent
 import com.woniu.gank.kotlin.di.AppModule
+import com.woniu.gank.kotlin.di.ClientModule
 import com.woniu.gank.kotlin.di.DaggerAppComponent
 import kotlin.properties.Delegates
 
@@ -20,6 +22,7 @@ class GankApp : Application() {
     val appComponent: AppComponent by lazy {
         DaggerAppComponent.builder()
                 .appModule(AppModule(this))
+                .clientModule(ClientModule(ApiService.baseUrl))
                 .build()
     }
 
@@ -32,7 +35,7 @@ class GankApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        instance = this;
+        instance = this
     }
 
 }
