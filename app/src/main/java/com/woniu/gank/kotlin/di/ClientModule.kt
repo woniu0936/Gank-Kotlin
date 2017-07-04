@@ -1,9 +1,9 @@
 package com.woniu.gank.kotlin.di
 
+import com.woniu.gank.kotlin.data.bean.NetWorkInterceptor
 import dagger.Module
 import dagger.Provides
 import io.reactivex.schedulers.Schedulers
-import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -28,16 +28,20 @@ class ClientModule(val baseUrl: String) {
 
     @Provides
     @Singleton
-    fun provideOkHttp(interceptor: Interceptor): OkHttpClient = buildOkHttpClient(interceptor)
+    fun provideOkHttp(interceptor: NetWorkInterceptor): OkHttpClient = buildOkHttpClient(interceptor)
 
     @Provides
     @Singleton
     fun provideRetrofit(okClient: OkHttpClient): Retrofit = buildRetrofit(okClient)
 
+    @Provides
+    @Singleton
+    fun provideInterceptor(): NetWorkInterceptor = NetWorkInterceptor()
+
     /**
      * 构建OkHttpClient对象
      */
-    private fun buildOkHttpClient(interceptor: Interceptor): OkHttpClient {
+    private fun buildOkHttpClient(interceptor: NetWorkInterceptor): OkHttpClient {
         return OkHttpClient.Builder()
                 .addInterceptor(interceptor)
                 .retryOnConnectionFailure(true)
