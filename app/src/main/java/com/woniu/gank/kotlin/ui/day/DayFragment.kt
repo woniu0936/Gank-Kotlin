@@ -32,8 +32,6 @@ class DayFragment : RxBaseFragment(), DayContract.View {
         MultiTypeAdapter()
     }
 
-    override fun bind(): LifecycleProvider<FragmentEvent> = this
-
     //Java 调用伴生对象的方法时需要加上注解 platformStatic
     companion object {
         fun newInstance(): DayFragment {
@@ -70,6 +68,8 @@ class DayFragment : RxBaseFragment(), DayContract.View {
     }
 
     override fun getLayoutId(): Int = R.layout.fragment_day
+
+    override fun bindLifecycle(): LifecycleProvider<FragmentEvent> = this
 
     override fun showLoading() {
 

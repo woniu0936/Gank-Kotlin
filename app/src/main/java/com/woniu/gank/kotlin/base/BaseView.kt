@@ -1,6 +1,7 @@
 package com.woniu.gank.kotlin.base
 
 import com.trello.rxlifecycle2.LifecycleProvider
+import com.trello.rxlifecycle2.android.FragmentEvent
 
 /**
  * @author woniu
@@ -12,6 +13,6 @@ import com.trello.rxlifecycle2.LifecycleProvider
  */
 interface BaseView {
 
-
+    fun bindLifecycle(): LifecycleProvider<FragmentEvent>
 
 }
