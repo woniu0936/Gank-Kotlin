@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.woniu.gank.kotlin.R
 import com.woniu.gank.kotlin.ui.day.DayModel
 import kotlinx.android.synthetic.main.item_day_view_android.view.*
@@ -21,6 +22,7 @@ class AndroidViewBinder : ItemViewBinder<DayModel, AndroidViewBinder.ViewHolder>
 
     override fun onBindViewHolder(holder: ViewHolder, item: DayModel) {
         holder.bindView(item)
+        holder.bindEvent(item)
     }
 
     override fun onCreateViewHolder(inflater: LayoutInflater, parent: ViewGroup): ViewHolder {
@@ -32,6 +34,12 @@ class AndroidViewBinder : ItemViewBinder<DayModel, AndroidViewBinder.ViewHolder>
 
         fun bindView(item: DayModel) {
             itemView.tvTitle.text = item.desc
+        }
+
+        fun bindEvent(item: DayModel) {
+            itemView.tvTitle.setOnClickListener {
+                Toast.makeText(itemView.context, itemView.tvTitle.text, Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
