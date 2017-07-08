@@ -1,10 +1,11 @@
 package com.woniu.gank.kotlin.ui.category
 
-import com.trello.rxlifecycle2.kotlin.bindToLifecycle
+import android.os.Bundle
+import android.view.View
 import com.woniu.gank.kotlin.R
 import com.woniu.gank.kotlin.base.RxBaseFragment
 import com.woniu.gank.kotlin.di.AppComponent
-import io.reactivex.Observable
+import kotlinx.android.synthetic.main.fragment_category.*
 
 /**
  * @author woniu
@@ -29,11 +30,13 @@ class CategoryFragment : RxBaseFragment() {
 
     override fun getLayoutId(): Int = R.layout.fragment_category
 
-    fun t() {
-        Observable.just(1)
-//                .bindUntilEvent(this, FragmentEvent.DESTROY_VIEW)
-                .bindToLifecycle(this)
-                .subscribe()
+    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        mTab.addTab(mTab.newTab())
+        mTab.addTab(mTab.newTab())
+        mTab.addTab(mTab.newTab())
+        mViewPager.adapter = ViewPagerAdapter(childFragmentManager)
+        mTab.setupWithViewPager(mViewPager)
     }
 
 }

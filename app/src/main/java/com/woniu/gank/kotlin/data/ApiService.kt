@@ -56,4 +56,16 @@ interface ApiService {
     @GET("data/Android/{pageSize}/{pageNo}")
     fun getAndroid(@Path("pageSize") pageSize: Int, @Path("pageNo") pageNo: Int): Flowable<HttpResponse<DayBean>>
 
+    //ios数据
+    @GET("data/Android/{pageSize}/{pageNo}")
+    fun getIOS(@Path("pageSize") pageSize: Int, @Path("pageNo") pageNo: Int): Flowable<HttpResponse<DayBean>>
+
+    //休息视频
+    @GET("data/Android/{pageSize}/{pageNo}")
+    fun getVideo(@Path("pageSize") pageSize: Int, @Path("pageNo") pageNo: Int): Flowable<HttpResponse<DayBean>>
+
+    //妹子
+    @GET("data/Android/{pageSize}/{pageNo}")
+    fun getGirl(@Path("pageSize") pageSize: Int, @Path("pageNo") pageNo: Int): Flowable<HttpResponse<DayBean>>
+
 }

@@ -5,6 +5,7 @@ import com.woniu.gank.kotlin.data.bean.DayBean
 import com.woniu.gank.kotlin.tool.RxHelper
 import io.reactivex.Flowable
 import retrofit2.Retrofit
+import java.util.*
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -41,5 +42,38 @@ class DataManager @Inject constructor(retrofit: Retrofit) {
         return mApiService.getDay(year, month, day)
                 .compose(RxHelper.transerformResult())
     }
+
+    /**
+     * android资源
+     */
+    fun getAndroid(pageNo: Int): Flowable<DayBean> {
+        return mApiService.getAndroid(20, pageNo)
+                .compose(RxHelper.transerformResult())
+    }
+
+    /**
+     * ios
+     */
+    fun getIOS(pageNo: Int): Flowable<DayBean> {
+        return mApiService.getIOS(20, pageNo)
+                .compose(RxHelper.transerformResult())
+    }
+
+    /**
+     * 休息视频
+     */
+    fun getVideo(pageNo: Int): Flowable<DayBean> {
+        return mApiService.getVideo(20, pageNo)
+                .compose(RxHelper.transerformResult())
+    }
+
+    /**
+     * 妹子
+     */
+    fun getGirl(pageNo: Int): Flowable<DayBean> {
+        return mApiService.getGirl(20, pageNo)
+                .compose(RxHelper.transerformResult())
+    }
+
 
 }
