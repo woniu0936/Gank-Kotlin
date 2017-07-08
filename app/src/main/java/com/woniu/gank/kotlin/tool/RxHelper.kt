@@ -1,5 +1,6 @@
 package com.woniu.gank.kotlin.tool
 
+import android.util.Log
 import com.woniu.gank.kotlin.data.bean.HttpResponse
 import io.reactivex.BackpressureStrategy
 import io.reactivex.Flowable
@@ -15,6 +16,8 @@ import io.reactivex.FlowableTransformer
  */
 object RxHelper {
 
+    val TAG = RxHelper::class.java.simpleName
+
     /**
      * 将HttpResponse<T>转换成T
      */
@@ -24,6 +27,7 @@ object RxHelper {
                 if (httpResponse.error) {
                     Flowable.error(RuntimeException(""))
                 } else {
+                    Log.d(TAG, httpResponse.toString())
                     createFlowable(httpResponse.data)
                 }
             }

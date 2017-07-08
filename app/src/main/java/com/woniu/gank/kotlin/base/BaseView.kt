@@ -1,5 +1,7 @@
 package com.woniu.gank.kotlin.base
 
+import com.trello.rxlifecycle2.LifecycleProvider
+
 /**
  * @author woniu
  * @title BaseView
@@ -9,5 +11,7 @@ package com.woniu.gank.kotlin.base
  * @since 2017/6/21 下午4:56
  */
 interface BaseView {
+
+
 
 }

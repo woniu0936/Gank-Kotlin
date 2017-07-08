@@ -1,6 +1,5 @@
 package com.woniu.gank.kotlin.data
 
-import com.woniu.gank.kotlin.data.bean.AndroidBean
 import com.woniu.gank.kotlin.data.bean.DayBean
 import com.woniu.gank.kotlin.data.bean.HttpResponse
 import io.reactivex.Flowable
@@ -55,6 +54,6 @@ interface ApiService {
 
     //android数据
     @GET("data/Android/{pageSize}/{pageNo}")
-    fun getAndroid(@Path("pageSize") pageSize: Int, @Path("pageNo") pageNo: Int): Flowable<HttpResponse<AndroidBean>>
+    fun getAndroid(@Path("pageSize") pageSize: Int, @Path("pageNo") pageNo: Int): Flowable<HttpResponse<DayBean>>
 
 }

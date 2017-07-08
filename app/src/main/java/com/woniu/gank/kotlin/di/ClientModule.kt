@@ -1,10 +1,14 @@
 package com.woniu.gank.kotlin.di
 
+import com.ihsanbal.logging.Level
+import com.ihsanbal.logging.LoggingInterceptor
+import com.woniu.gank.kotlin.BuildConfig
 import com.woniu.gank.kotlin.data.bean.NetWorkInterceptor
 import dagger.Module
 import dagger.Provides
 import io.reactivex.schedulers.Schedulers
 import okhttp3.OkHttpClient
+import okhttp3.internal.platform.Platform
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -28,7 +32,7 @@ class ClientModule(val baseUrl: String) {
 
     @Provides
     @Singleton
-    fun provideOkHttp(interceptor: NetWorkInterceptor): OkHttpClient = buildOkHttpClient(interceptor)
+    fun provideOkHttp(interceptor: NetWorkInterceptor, loggingInterceptor: LoggingInterceptor): OkHttpClient = buildOkHttpClient(interceptor, loggingInterceptor)
 
     @Provides
     @Singleton
@@ -38,12 +42,26 @@ class ClientModule(val baseUrl: String) {
     @Singleton
     fun provideInterceptor(): NetWorkInterceptor = NetWorkInterceptor()
 
+    @Provides
+    @Singleton
+    fun provideLoggingInterceptor(): LoggingInterceptor {
+        return LoggingInterceptor.Builder()
+                .loggable(BuildConfig.DEBUG)
+                .setLevel(Level.BASIC)
+                .log(Platform.INFO)
+                .request("Request")
+                .response("Response")
+                .addHeader("version", BuildConfig.VERSION_NAME)
+                .build()
+    }
+
     /**
      * 构建OkHttpClient对象
      */
-    private fun buildOkHttpClient(interceptor: NetWorkInterceptor): OkHttpClient {
+    private fun buildOkHttpClient(interceptor: NetWorkInterceptor, loggingInterceptor: LoggingInterceptor): OkHttpClient {
         return OkHttpClient.Builder()
                 .addInterceptor(interceptor)
+                .addInterceptor(loggingInterceptor)
                 .retryOnConnectionFailure(true)
                 .connectTimeout(CONNECT_TIME_OUT, TimeUnit.MILLISECONDS)
                 .readTimeout(READ_TIME_OUT, TimeUnit.MILLISECONDS)
