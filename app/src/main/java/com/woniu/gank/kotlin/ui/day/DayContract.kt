@@ -1,10 +1,7 @@
 package com.woniu.gank.kotlin.ui.day
 
-import com.trello.rxlifecycle2.LifecycleProvider
-import com.trello.rxlifecycle2.android.FragmentEvent
 import com.woniu.gank.kotlin.base.BasePresenter
 import com.woniu.gank.kotlin.base.BaseView
-import com.woniu.gank.kotlin.data.bean.GankBean
 
 /**
  * @author woniu
@@ -17,10 +14,6 @@ import com.woniu.gank.kotlin.data.bean.GankBean
 interface DayContract {
 
     interface View : BaseView {
-
-//        fun bind(event: FragmentEvent): LifecycleTransformer<T>
-
-        fun bind(): LifecycleProvider<FragmentEvent>
 
         fun showLoading()
 

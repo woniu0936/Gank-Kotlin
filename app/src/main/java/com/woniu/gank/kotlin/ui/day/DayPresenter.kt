@@ -36,7 +36,7 @@ class DayPresenter @Inject constructor(private val mView: DayContract.View) : Da
         mDataManager.getDay()
                 .map(transform)
                 .observeOn(AndroidSchedulers.mainThread())
-                .bindUntilEvent(mView.bind(), FragmentEvent.DESTROY_VIEW)
+                .bindUntilEvent(mView.bindLifecycle(), FragmentEvent.DESTROY_VIEW)
                 .subscribe(object : RxSubscriber<List<DayModel>>() {
                     override fun onNext(t: List<DayModel>?) {
                         mView.showContent(t)
