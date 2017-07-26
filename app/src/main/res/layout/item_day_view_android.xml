@@ -9,25 +9,51 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp">
 
         <ImageView
             android:id="@+id/ivImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
             android:layout_margin="8dp"
             app:srcCompat="@drawable/ic_android_black_24dp" />
 
-        <android.support.v7.widget.AppCompatTextView
+        <TextView
             android:id="@+id/tvTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
+            android:layout_marginBottom="4dp"
             android:layout_toRightOf="@id/ivImage"
             android:textColor="@android:color/black"
             android:textSize="14dp"
+            android:textStyle="bold"
             tools:text="android" />
+
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/tvTitle"
+            android:layout_marginRight="8dp"
+            android:textColor="@android:color/black"
+            android:textSize="10dp"
+            tools:text="2017-07-06" />
+
+        <TextView
+            android:id="@+id/tvAuthor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvTitle"
+            android:layout_toLeftOf="@id/tvDate"
+            android:layout_toRightOf="@id/ivImage"
+            android:textColor="@android:color/black"
+            android:textSize="10dp"
+            tools:text="by:代码家" />
 
     </RelativeLayout>
 

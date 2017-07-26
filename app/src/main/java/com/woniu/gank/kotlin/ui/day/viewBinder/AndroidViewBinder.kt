@@ -34,6 +34,8 @@ class AndroidViewBinder : ItemViewBinder<DayModel, AndroidViewBinder.ViewHolder>
 
         fun bindView(item: DayModel) {
             itemView.tvTitle.text = item.desc
+            itemView.tvAuthor.text = "by: ${item.who}"
+            itemView.tvDate.text = item.publishedTime.toString()
         }
 
         fun bindEvent(item: DayModel) {
