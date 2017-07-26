@@ -1,7 +1,8 @@
-package com.woniu.gank.kotlin
+package com.woniu.gank.kotlin.ui
 
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
+import com.woniu.gank.kotlin.R
 import com.woniu.gank.kotlin.base.RxBaseActivity
 import com.woniu.gank.kotlin.ui.category.CategoryFragment
 import com.woniu.gank.kotlin.ui.day.DayFragment

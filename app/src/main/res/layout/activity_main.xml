@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.woniu.gank.kotlin.MainActivity">
+    tools:context="com.woniu.gank.kotlin.ui.MainActivity">
 
     <FrameLayout
         android:id="@+id/content"
