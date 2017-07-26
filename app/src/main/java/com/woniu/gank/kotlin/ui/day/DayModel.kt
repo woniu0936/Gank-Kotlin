@@ -13,18 +13,18 @@ import java.util.*
  * @since 2017/7/5 上午12:08
  */
 class DayModel(var id: String,
-               var type: String,
-               var url: String,
-               var who: String,
-               var desc: String,
-               var userd: Boolean,
-               var createdTime: Date,
-               var publishedTime: Date) {
+               var type: String?,
+               var url: String?,
+               var who: String?,
+               var desc: String?,
+               var userd: Boolean?,
+               var createdTime: Date?,
+               var publishedTime: Date?) {
 
     companion object {
         val TYPE_ANDROID = "Android"
         val TYPE_IOS = "iOS"
-        val TYPE_RESOURCE = "拓展资源"
+        val TYPE_JS = "前端"
         val TYPE_VIDEO = "休息视频"
         val TYPE_GIRL = "福利"
 

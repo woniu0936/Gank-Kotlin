@@ -69,8 +69,8 @@ class DayPresenter @Inject constructor(private val mView: DayContract.View) : Da
             datas.addAll(DayModel.transform(result.IOS))
         }
 
-        result.resource?.let {
-            datas.addAll(DayModel.transform(result.resource))
+        result.JS?.let {
+            datas.addAll(DayModel.transform(result.JS))
         }
 
         result.video?.let {
@@ -121,8 +121,8 @@ class DayPresenter @Inject constructor(private val mView: DayContract.View) : Da
             result.IOS.forEach { datas.add(it) }
         }
 
-        result.resource?.let {
-            result.resource.forEach { datas.add(it) }
+        result.JS?.let {
+            result.JS.forEach { datas.add(it) }
         }
 
         result.video?.let {

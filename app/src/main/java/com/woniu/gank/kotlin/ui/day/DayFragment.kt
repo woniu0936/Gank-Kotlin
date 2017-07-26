@@ -50,7 +50,7 @@ class DayFragment : RxBaseFragment(), DayContract.View {
                 .withClassLinker { model ->
                     when (model.type) {
                         DayModel.TYPE_VIDEO -> VideoViewBinder::class.java
-                        DayModel.TYPE_RESOURCE -> JSViewBinder::class.java
+                        DayModel.TYPE_JS -> JSViewBinder::class.java
                         DayModel.TYPE_ANDROID -> AndroidViewBinder::class.java
                         DayModel.TYPE_IOS -> IOSViewBinder::class.java
                         else -> GirlViewBinder::class.java
