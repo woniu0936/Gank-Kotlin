@@ -39,7 +39,6 @@ class GirlViewBinder : ItemViewBinder<DayModel, GirlViewBinder.ViewHolder>() {
             Glide.with(itemView.context)
                     .load(item.url)
                     .placeholder(R.mipmap.ic_launcher_round)
-                    .fitCenter()
                     .into(itemView.ivImage)
 
         }

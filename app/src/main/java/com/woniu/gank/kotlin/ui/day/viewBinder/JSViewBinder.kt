@@ -1,6 +1,5 @@
 package com.woniu.gank.kotlin.ui.day.viewBinder
 
-import android.media.Image
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -12,13 +11,13 @@ import me.drakeet.multitype.ItemViewBinder
 
 /**
  * @author woniu
- * @title ResourceViewBinder
+ * @title JSViewBinder
  * @description
  * @modifier
  * @date
  * @since 2017/7/5 上午12:30
  */
-class ResourceViewBinder : ItemViewBinder<DayModel, ResourceViewBinder.ViewHolder>() {
+class JSViewBinder : ItemViewBinder<DayModel, JSViewBinder.ViewHolder>() {
 
     override fun onBindViewHolder(holder: ViewHolder, item: DayModel) {
 

@@ -13,5 +13,5 @@ import com.google.gson.annotations.SerializedName
 data class DayBean(@SerializedName("Android") var android: List<GankBean>,
                    @SerializedName("iOS") var IOS: List<GankBean>,
                    @SerializedName("休息视频") var video: List<GankBean>,
-                   @SerializedName("拓展资源") var resource: List<GankBean>,
+                   @SerializedName("前端") var JS: List<GankBean>,
                    @SerializedName("福利") var girl: List<GankBean>)
