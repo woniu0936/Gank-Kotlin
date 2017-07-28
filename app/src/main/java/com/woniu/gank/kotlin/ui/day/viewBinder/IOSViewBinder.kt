@@ -5,8 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.woniu.gank.kotlin.R
+import com.woniu.gank.kotlin.extension.formatToDay
 import com.woniu.gank.kotlin.ui.day.DayModel
-import kotlinx.android.synthetic.main.item_day_view_android.view.*
+import kotlinx.android.synthetic.main.item_day_view_ios.view.*
 import me.drakeet.multitype.ItemViewBinder
 
 /**
@@ -32,6 +33,8 @@ class IOSViewBinder : ItemViewBinder<DayModel, IOSViewBinder.ViewHolder>() {
 
         fun bindView(item: DayModel) {
             itemView.tvTitle.text = item.desc
+            itemView.tvAuthor.text = "by: ${item.who}"
+            itemView.tvTime.text = item.createdTime?.formatToDay()
         }
     }
 
