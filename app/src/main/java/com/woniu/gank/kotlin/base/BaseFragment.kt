@@ -23,7 +23,7 @@ abstract class BaseFragment : SupportFragment() {
         inject(GankApp.instance.appComponent)
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater?.inflate(getLayoutId(), container, false)
     }
 

@@ -59,7 +59,7 @@ class DayFragment : RxBaseFragment(), DayContract.View {
     }
 
     //    lateinit var adapter: DayAdapter
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         mRecyclerView.layoutManager = LinearLayoutManager(_mActivity)
 //        adapter = DayAdapter()

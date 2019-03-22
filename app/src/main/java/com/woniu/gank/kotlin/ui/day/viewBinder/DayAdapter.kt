@@ -26,14 +26,14 @@ class DayAdapter : RecyclerView.Adapter<DayAdapter.ViewHolder>() {
         list = ArrayList()
     }
 
-    override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         Log.d("DayAdapter", list[position].toString())
         holder?.bindView(list[position])
     }
 
     override fun getItemCount(): Int = list.size
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val root = LayoutInflater.from(parent?.context).inflate(R.layout.item_day_view, parent, false);
         return ViewHolder(root)
     }

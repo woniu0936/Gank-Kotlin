@@ -30,7 +30,7 @@ class CategoryFragment : RxBaseFragment() {
 
     override fun getLayoutId(): Int = R.layout.fragment_category
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         mTab.addTab(mTab.newTab())
         mTab.addTab(mTab.newTab())
